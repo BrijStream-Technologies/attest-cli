@@ -73,7 +73,7 @@ field by field and never returns a comment body. Zendesk and Intercom cannot be 
 Zendesk's ticket export includes each ticket's first comment and its audits carry comment bodies on
 the very events we must read to count turns, and Intercom's conversation endpoint has no field
 projection at all. Those bytes arrive **inside your own network**, where the connector runs, and are
-skipped as they are read — no record type declares a body field, so none is kept or used. No message content reaches
+discarded as they are read — no record type declares a body field, so none is kept or used. No message content reaches
 Kyvryn or appears in any artifact. The source bundle does carry requester ids and email addresses,
 which are needed to classify staff and test accounts, so treat it as personal data if you share it.
 
