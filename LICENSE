@@ -1,0 +1,34 @@
+PROVISIONAL — these terms have not been reviewed by counsel.
+
+Copyright 2026 BrijStream Technologies. All rights reserved.
+
+These binaries are made available for evaluation and internal business use.
+
+You may download, run and evaluate them, and use them for the internal business purposes of your
+organisation, including in dealings with your own suppliers.
+
+You may not redistribute, sell or sublicense them, and you may not reverse engineer, decompile or
+disassemble them except to the extent that restriction is unenforceable under applicable law.
+
+Output. Reports, evidence packs, dispute files and verdicts produced by this software belong to the
+customer who produced them. The customer may disclose them to the vendor whose charges they concern
+and to the customer's own advisors, auditors and insurers. Any recipient may use, copy, re-run and
+respond to them for the purpose of evaluating or disputing those charges. Nothing in this licence
+restricts the measured party's ability to check the measurement — the software exists to be checked,
+and a licence that impeded that would defeat its purpose.
+
+Output is produced from records the customer supplies. BrijStream Technologies does not warrant the
+completeness or accuracy of those records and accepts no liability for commercial decisions taken on
+the output.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT
+NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+NONINFRINGEMENT. IN NO EVENT SHALL THE COPYRIGHT HOLDER BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR ITS USE.
+
+Output produced by this software is an attestation against criteria fixed before the run. It is not an
+audit, and BrijStream Technologies is not a registered audit firm.
+
+The derivation these binaries run is published separately under the Apache License 2.0 at
+https://github.com/BrijStream-Technologies/resolution-normalise and is governed by that licence,
+not this one.
