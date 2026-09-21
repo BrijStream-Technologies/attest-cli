@@ -33,8 +33,9 @@ On macOS the first run may be blocked by Gatekeeper — `xattr -d com.apple.quar
 /usr/local/bin/attest` clears it.
 
 **Platforms.** macOS (Apple silicon and Intel), Linux x86_64 (static, musl — runs on whatever
-your company standardised on) and Windows x86_64. Release binaries are built by an automated
-workflow that refuses uncommitted changes; `attest --version` names the commit. The binaries are
+your company standardised on) and Windows x86_64. From v0.1.2, release binaries are built by an
+automated workflow; from v0.1.3 it refuses, on every platform, a binary not built from a clean
+commit. `attest --version` names the commit. The binaries are
 not yet signed, so macOS and Windows will warn on first run. Check the
 [releases page](../../releases/latest) for what is actually there rather than taking this list on
 trust.
@@ -64,7 +65,7 @@ new one instead.
 
 ## What leaves your network
 
-**No message body is parsed, stored, or sent to Kyvryn.** Every check runs on metadata and state
+**No message body is used, stored, or sent to Kyvryn.** Every check runs on metadata and state
 transitions — who opened a ticket, when it changed status, who replied, whether a refund followed.
 
 Said precisely, because the stronger version is not true of every helpdesk. Salesforce is queried
@@ -72,7 +73,7 @@ field by field and never returns a comment body. Zendesk and Intercom cannot be 
 Zendesk's ticket export includes each ticket's first comment and its audits carry comment bodies on
 the very events we must read to count turns, and Intercom's conversation endpoint has no field
 projection at all. Those bytes arrive **inside your own network**, where the connector runs, and are
-discarded without being parsed — the types declare no body field. No message content reaches
+skipped as they are read — no record type declares a body field, so none is kept or used. No message content reaches
 Kyvryn or appears in any artifact. The source bundle does carry requester ids and email addresses,
 which are needed to classify staff and test accounts, so treat it as personal data if you share it.
 
@@ -96,8 +97,8 @@ account manager is paid to dismiss. So the part that does the measuring is **ope
 
 - **[resolution-normalise](https://github.com/BrijStream-Technologies/resolution-normalise)** —
   the derivation, Apache-2.0. Hand your vendor the source bundle (`attest export-bundle`) and the
-  ruleset; they re-run it against their own copy of the records and recompute every claim byte for
-  byte, including the digests each claim carries.
+  ruleset; they re-run it over that bundle and recompute every claim byte for byte, including the
+  digests each claim carries, then check the bundle against their own records.
 - **Versioned rulesets** with published digests, so which rules applied is a lookup rather than a
   claim.
 - **Signed verdicts.** `attest verify` checks each signature against the key the attestation names,
