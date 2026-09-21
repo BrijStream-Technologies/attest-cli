@@ -32,11 +32,14 @@ chmod +x attest-macos-arm64 && mv attest-macos-arm64 /usr/local/bin/attest
 On macOS the first run may be blocked by Gatekeeper — `xattr -d com.apple.quarantine
 /usr/local/bin/attest` clears it.
 
-**Platforms.** macOS on Apple silicon and Intel are published now; the binaries in the current
-release were built manually from the commit named in `attest --version`. Linux (static, musl —
-runs on whatever your company standardised on) and Windows will follow once automated release
-builds are in place. Check the [releases page](../../releases/latest) for what is
-actually there rather than taking this list on trust.
+**Platforms.** macOS (Apple silicon and Intel), Linux x86_64 (static, musl — runs on whatever
+your company standardised on) and Windows x86_64. Release binaries are built by an automated
+workflow that refuses uncommitted changes; `attest --version` names the commit. The binaries are
+not yet signed, so macOS and Windows will warn on first run. Check the
+[releases page](../../releases/latest) for what is actually there rather than taking this list on
+trust.
+
+On Windows, SmartScreen may block the first run; choose "More info", then "Run anyway".
 
 ## Your first month
 
