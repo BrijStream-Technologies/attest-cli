@@ -102,9 +102,12 @@ account manager is paid to dismiss. So the part that does the measuring is **ope
 - **Versioned rulesets** with published digests, so which rules applied is a lookup rather than a
   claim.
 - **Signed verdicts.** `attest verify` checks each signature against the key the attestation names,
-  offline, with no account and no network. That proves the file is **internally consistent** — the
-  decision, criteria and digests match the key the file names. It does **not** prove the file is
-  unaltered, because an altered verdict re-signed with a different key names that key and passes.
+  offline, with no account and no network. The signature covers the task id, the contract digest,
+  the artifact digest, the decision and the issue time. The criteria and schema each attestation
+  reproduces are **not** covered by it — they are bound only inside the contract digest, which cannot
+  be recomputed from the attestation, so read them as the Judge's stated rules and let `attest pack`
+  check them against the records packed. Nor does a passing signature prove the file is unaltered,
+  because an altered verdict re-signed with a different key names that key and passes.
   To establish who signed it, compare the named key against the Judge's published key at
   [`/.well-known/judge-keys.json`](https://a2a-orchestrator-production.up.railway.app/.well-known/judge-keys.json) —
   served to anyone, with no credential, so you never have to ask us for it.
